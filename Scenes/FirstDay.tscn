@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Bush.tscn" type="PackedScene" id=2]
+
+[node name="FirstDay" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 160, 88 )
+
+[node name="Bush" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 72, 144 )
+
+[node name="Bush2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 40, 72 )
+
+[node name="Bush3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 264, 136 )
+
+[node name="Bush4" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 224, 32 )
+
+[node name="Bush5" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 176, 152 )
