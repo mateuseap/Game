@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Bush.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/CameraPlayer.gd" type="Script" id=3]
 
 [node name="FirstDay" type="Node2D"]
 
@@ -24,3 +25,12 @@ position = Vector2( 224, 32 )
 
 [node name="Bush5" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 176, 152 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 160, 88 )
+current = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 3 )
