@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Hotbar/hotbar_background.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Slot.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Hotbar.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fonts/NineteenEightySeven-MzMJ.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Hotbar" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 101.0
+margin_top = 159.49
+margin_right = 263.0
+margin_bottom = 199.49
+rect_scale = Vector2( 0.725, 0.7 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HotbarSlots" type="GridContainer" parent="."]
+margin_left = 102.821
+margin_top = 160.2
+margin_right = 274.821
+margin_bottom = 200.2
+rect_scale = Vector2( 0.69, 0.69 )
+custom_constants/hseparation = 3
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HotbarSlot1" type="Panel" parent="HotbarSlots"]
+margin_right = 18.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot2" type="Panel" parent="HotbarSlots"]
+margin_left = 21.0
+margin_right = 39.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot3" type="Panel" parent="HotbarSlots"]
+margin_left = 42.0
+margin_right = 60.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot4" type="Panel" parent="HotbarSlots"]
+margin_left = 63.0
+margin_right = 81.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot5" type="Panel" parent="HotbarSlots"]
+margin_left = 84.0
+margin_right = 102.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot6" type="Panel" parent="HotbarSlots"]
+margin_left = 105.0
+margin_right = 123.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot7" type="Panel" parent="HotbarSlots"]
+margin_left = 126.0
+margin_right = 144.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="HotbarSlot8" type="Panel" parent="HotbarSlots"]
+margin_left = 147.0
+margin_right = 165.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 18 )
+script = ExtResource( 2 )
+
+[node name="ActiveItemLabel" type="Label" parent="."]
+margin_left = 103.14
+margin_top = 151.62
+margin_right = 262.14
+margin_bottom = 169.62
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = SubResource( 1 )
+text = "Sample Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
