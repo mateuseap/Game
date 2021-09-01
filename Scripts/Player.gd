@@ -29,3 +29,10 @@ func move(delta):
 	else:
 		animationState.travel("Idle")
 		speed = speed.move_toward(Vector2.ZERO,FRICTION*delta)
+
+func _input(event):
+	if event.is_action_pressed("pick_up"):
+		if $PickUpZone.itemsInRange.size() > 0:
+			var pickUpItem = $PickUpZone.itemsInRange.values()[0]
+			pickUpItem.pickUpItem(self)
+			$PickUpZone.itemsInRange.erase(pickUpItem)
