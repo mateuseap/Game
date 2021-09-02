@@ -104,6 +104,9 @@ position = Vector2( -209.065, 110.796 )
 [node name="ItemDrop" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 72.7966, 112.252 )
 
+[node name="ItemDrop2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 23.4882, -27.8673 )
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
 
@@ -113,6 +116,7 @@ visible = false
 [node name="Hotbar" parent="UserInterface" instance=ExtResource( 7 )]
 
 [node name="Area2D" parent="." instance=ExtResource( 9 )]
-position = Vector2( -146.758, 8.95535 )
+position = Vector2( -137.763, 4.22106 )
 
 [connection signal="pickedUp" from="YSort/ItemDrop" to="." method="_on_ItemDrop_pickedUp"]
+[connection signal="pickedUp" from="YSort/ItemDrop2" to="." method="_on_ItemDrop2_pickedUp"]

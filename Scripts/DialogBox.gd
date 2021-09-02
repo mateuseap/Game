@@ -1,9 +1,16 @@
 extends Control
 var dialog = [ 'oi coisinha esquisita', ' poderia me ajudar com umas coisas?', ' DAYLOLLLLLLLLLLLL']
+var dialog2 = ['coisinha esquisita, você conseguiu....']
 var dialog_index = 0
 var finished = false
-
+var inventory
+var quest = false
 func _ready():
+	inventory = PlayerInventory.inventory
+	for item in inventory:
+		if inventory[item][0] == "Slime Potion" and inventory[item][1] != 0:
+			quest = true
+			print(quest)
 	load_dialog()
 
 func _physics_process(_delta):
@@ -12,17 +19,33 @@ func _physics_process(_delta):
 		load_dialog()
 		
 func load_dialog():
-	if dialog_index < dialog.size():
-			finished = false 
-			$RichTextLabel.bbcode_text = dialog[dialog_index]
-			$RichTextLabel.percent_visible = 0
-			$Tween.interpolate_property(
-				$RichTextLabel, "percent_visible", 0, 1, 1,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
-			)
-			$Tween.start()
+	print(quest)
+	if quest == true:
+		print('quest true')
+		if dialog_index < dialog2.size():
+					finished = false 
+					$RichTextLabel.bbcode_text = dialog2[dialog_index]
+					$RichTextLabel.percent_visible = 0
+					$Tween.interpolate_property(
+						$RichTextLabel, "percent_visible", 0, 1, 1,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+					)
+					$Tween.start()
+		else:
+			queue_free()
+		dialog_index += 1
 	else:
-		queue_free()
-	dialog_index += 1
+		print('quest false')
+		if dialog_index < dialog.size():
+					finished = false 
+					$RichTextLabel.bbcode_text = dialog[dialog_index]
+					$RichTextLabel.percent_visible = 0
+					$Tween.interpolate_property(
+						$RichTextLabel, "percent_visible", 0, 1, 1,Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+					)
+					$Tween.start()
+		else:
+			queue_free()
+		dialog_index += 1
 
 func _on_Tween_tween_completed(_object, _key):
 	finished = true

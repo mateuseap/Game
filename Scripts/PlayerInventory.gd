@@ -8,14 +8,14 @@ const INVENTORY_SLOTS = 20
 const HOTBAR_SLOTS = 8
 
 var inventory = {
-	0: ["Slime Potion", 96], #Índice do inventário, item e quantidade desejada
+	0: ["Slime Potion", 0], #Índice do inventário, item e quantidade desejada
 	1: ["Tree Branch", 98],
-	2: ["Slime Potion", 4]
+	2: ["Slime Potion", 0]
 }
 
 var hotbar = {
 	0: ["Iron Sword", 1], #Índice do inventário, item e quantidade desejada
-	1: ["Slime Potion", 4]
+	1: ["Slime Potion", 0]
 }
 
 var activeItemSlot = 0
