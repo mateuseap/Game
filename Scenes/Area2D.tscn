@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Fonts/NineteenEightySeven-MzMJ.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 11.1554
+radius = 17.2063
 height = 8.74858
 
 [sub_resource type="DynamicFont" id=2]
