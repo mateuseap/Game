@@ -11,6 +11,7 @@ func _ready():
 		if inventory[item][0] == "Slime Potion" and inventory[item][1] != 0:
 			quest = true
 			print(quest)
+
 	load_dialog()
 
 func _physics_process(_delta):
@@ -46,6 +47,5 @@ func load_dialog():
 		else:
 			queue_free()
 		dialog_index += 1
-
 func _on_Tween_tween_completed(_object, _key):
 	finished = true
