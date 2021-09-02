@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PickUpZone.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -250,6 +251,14 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpZone"]
 position = Vector2( -0.00666934, -7.85472 )
 shape = SubResource( 24 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 4 )
 
 [connection signal="body_entered" from="PickUpZone" to="PickUpZone" method="_on_PickUpZone_body_entered"]
 [connection signal="body_exited" from="PickUpZone" to="PickUpZone" method="_on_PickUpZone_body_exited"]

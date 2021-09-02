@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="TheGame"
-run/main_scene="res://Scenes/FirstDay.tscn"
+run/main_scene="res://Scenes/SceneManager.tscn"
 config/icon="res://icon.png"
 
 [autoload]
