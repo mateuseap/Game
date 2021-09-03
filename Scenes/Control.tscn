@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/DialogBox.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Dialog Box/ind.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Dialog Box/dialogbox.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dialog Box/teste.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/NineteenEightySeven-MzMJ.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/NPCs/npc.jpg" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=3]
-size = 6
-outline_size = 1
+[sub_resource type="DynamicFont" id=1]
+size = 4
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 2
 extra_spacing_space = 1
@@ -16,6 +16,9 @@ font_data = ExtResource( 4 )
 [sub_resource type="Animation" id=2]
 length = 0.6
 loop = true
+
+[sub_resource type="Animation" id=3]
+resource_name = "position"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -23,10 +26,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6 ),
+"times": PoolRealArray( 0, 0.4, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 169.098, 27.447 ), Vector2( 169.098, 24.834 ), Vector2( 169.098, 27.447 ) ]
+"values": [ Vector2( 162.917, 22.7397 ), Vector2( 162.563, 17.5483 ), Vector2( 161.856, 22.7397 ) ]
 }
 
 [node name="Control" type="CanvasLayer"]
@@ -50,11 +53,13 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
 anchor_right = 10.0
-margin_left = 48.2162
-margin_top = 21.7027
-margin_right = 278.216
-margin_bottom = 42.7027
-custom_fonts/normal_font = SubResource( 3 )
+margin_left = 63.1645
+margin_top = 24.2919
+margin_right = 293.165
+margin_bottom = 40.2919
+rect_pivot_offset = Vector2( 42.6532, -2.85552 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 text = " Sample Text"
 __meta__ = {
@@ -64,12 +69,34 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="DialogBox"]
 
 [node name="Ind" type="Sprite" parent="DialogBox"]
-position = Vector2( 169.098, 26.7124 )
+position = Vector2( 161.856, 22.7397 )
 scale = Vector2( 0.922222, 0.922222 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Ind"]
-autoplay = "Nova Animação"
+autoplay = "position"
+method_call_mode = 1
 "anims/Nova Animação" = SubResource( 2 )
+anims/position = SubResource( 3 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DialogBox"]
+anchor_right = 10.0
+margin_left = 69.4663
+margin_top = 15.3152
+margin_right = 234.466
+margin_bottom = 31.3152
+rect_pivot_offset = Vector2( 42.6532, -2.85552 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.690196, 0.188235, 0.360784, 1 )
+bbcode_enabled = true
+text = "Kinho"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NPC" type="Sprite" parent="DialogBox"]
+position = Vector2( 38.3977, 28.2587 )
+scale = Vector2( 0.0706412, 0.0625008 )
+texture = ExtResource( 5 )
 
 [connection signal="tween_completed" from="DialogBox/Tween" to="DialogBox" method="_on_Tween_tween_completed"]
