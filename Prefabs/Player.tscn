@@ -1,9 +1,10 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Characters/Player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PickUpZone.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=4]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
