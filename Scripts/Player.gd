@@ -5,15 +5,17 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 var speed = Vector2.ZERO
+var canWalk = true
 
 const ACCELERATION = 500
 const FRICTION = 500
 const MAX_SPEED = 80
 
 func _physics_process(delta):
-	move(delta)
-	speed = move_and_slide(speed)
-		
+	if canWalk:
+		move(delta)
+		speed = move_and_slide(speed)
+
 func move(delta):
 	var movement = Vector2.ZERO
 	

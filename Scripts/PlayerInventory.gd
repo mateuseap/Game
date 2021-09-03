@@ -8,14 +8,11 @@ const INVENTORY_SLOTS = 20
 const HOTBAR_SLOTS = 8
 
 var inventory = {
-	0: ["Slime Potion", 0], #Índice do inventário, item e quantidade desejada
-	1: ["Tree Branch", 98],
-	2: ["Slime Potion", 0]
+	0: ["Tree Branch", 98]
 }
 
 var hotbar = {
 	0: ["Iron Sword", 1], #Índice do inventário, item e quantidade desejada
-	1: ["Slime Potion", 0]
 }
 
 var activeItemSlot = 0
@@ -41,8 +38,7 @@ func addItem(itemName, itemQuantity):
 	return false
 
 func updateSlotVisual(slotIndex, itemName, newItemQuantity):
-	var currentDay = get_path_to(get_node("/root/SceneManager/CurrentScene").get_child(0)).get_name(3)
-	var slot = get_node("/root/SceneManager/CurrentScene/"+currentDay+"/UserInterface/Inventory/GridContainer/Slot"+str(slotIndex+1))
+	var slot = get_node("/root/SceneManager/UserInterface/Inventory/GridContainer/Slot"+str(slotIndex+1))
 	if slot.item != null:
 		slot.item.setItem(itemName,newItemQuantity)
 	else:

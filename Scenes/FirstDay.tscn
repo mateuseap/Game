@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Bush.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/FirstDay.gd" type="Script" id=3]
-[ext_resource path="res://Prefabs/Inventory.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/UserInterface.gd" type="Script" id=5]
 [ext_resource path="res://Prefabs/ItemDrop.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/Hotbar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/OverworldTileMap.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Area2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/NPC.tscn" type="PackedScene" id=9]
 
 [node name="FirstDay" type="Node2D"]
 script = ExtResource( 3 )
@@ -102,21 +99,13 @@ position = Vector2( 217.953, -33.041 )
 position = Vector2( -209.065, 110.796 )
 
 [node name="Area2D" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( -137.763, 4.22106 )
+position = Vector2( -140.099, 7.22445 )
 
 [node name="ItemDrop" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 72.7966, 112.252 )
 
 [node name="ItemDrop2" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 219.631, 77.0418 )
-
-[node name="UserInterface" type="CanvasLayer" parent="."]
-script = ExtResource( 5 )
-
-[node name="Inventory" parent="UserInterface" instance=ExtResource( 4 )]
-visible = false
-
-[node name="Hotbar" parent="UserInterface" instance=ExtResource( 7 )]
 
 [connection signal="pickedUp" from="YSort/ItemDrop" to="." method="_on_ItemDrop_pickedUp"]
 [connection signal="pickedUp" from="YSort/ItemDrop2" to="." method="_on_ItemDrop_pickedUp"]
