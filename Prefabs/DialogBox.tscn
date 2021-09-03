@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Fonts/NineteenEightySeven-MzMJ.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/DialogBox.gd" type="Script" id=2]
+[ext_resource path="res://Assets/NPCs/npc.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Dialog Box/teste.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Dialog Box/ind.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 4
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 2
+extra_spacing_space = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 163.586, 22.3661 ), Vector2( 163.586, 20.893 ), Vector2( 163.586, 22.3661 ) ]
+}
+
+[node name="Control" type="CanvasLayer"]
+
+[node name="DialogBox" type="Control" parent="."]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="DialogBox"]
+margin_left = 11.0
+margin_top = 8.0
+margin_right = 303.0
+margin_bottom = 48.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="DialogBox"]
+anchor_right = 10.0
+margin_left = 63.1645
+margin_top = 24.2919
+margin_right = 293.165
+margin_bottom = 40.2919
+rect_pivot_offset = Vector2( 42.6532, -2.85552 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+text = " Sample Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="DialogBox"]
+
+[node name="Ind" type="Sprite" parent="DialogBox"]
+position = Vector2( 163.586, 22.3661 )
+scale = Vector2( 0.922222, 0.922222 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Ind"]
+autoplay = "Nova Animação"
+method_call_mode = 1
+"anims/Nova Animação" = SubResource( 2 )
+
+[node name="NPCName" type="RichTextLabel" parent="DialogBox"]
+anchor_right = 10.0
+margin_left = 69.4663
+margin_top = 15.3152
+margin_right = 234.466
+margin_bottom = 31.3152
+rect_pivot_offset = Vector2( 42.6532, -2.85552 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.690196, 0.188235, 0.360784, 1 )
+bbcode_enabled = true
+text = "Kinho"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NPC" type="Sprite" parent="DialogBox"]
+position = Vector2( 38.3977, 28.2587 )
+scale = Vector2( 0.0706412, 0.0625008 )
+texture = ExtResource( 3 )
+
+[connection signal="tween_completed" from="DialogBox/Tween" to="DialogBox" method="_on_Tween_tween_completed"]
