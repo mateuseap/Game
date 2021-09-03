@@ -22,7 +22,6 @@ func _physics_process(_delta):
 func load_dialog():
 	print(quest)
 	if quest == true:
-		print('quest true')
 		if dialog_index < dialog2.size():
 					finished = false 
 					$RichTextLabel.bbcode_text = dialog2[dialog_index]
@@ -35,7 +34,6 @@ func load_dialog():
 			queue_free()
 		dialog_index += 1
 	else:
-		print('quest false')
 		if dialog_index < dialog.size():
 					finished = false 
 					$RichTextLabel.bbcode_text = dialog[dialog_index]
