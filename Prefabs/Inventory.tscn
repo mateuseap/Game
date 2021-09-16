@@ -233,7 +233,7 @@ position = Vector2( 35.9405, 88.5889 )
 scale = Vector2( 1.96839, 1.96839 )
 texture = ExtResource( 5 )
 hframes = 28
-frame = 22
+frame = 25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Day"]
 autoplay = "RunDown"
