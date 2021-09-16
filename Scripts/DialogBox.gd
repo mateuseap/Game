@@ -5,14 +5,18 @@ var dialog2 = ['coisinha esquisita, você conseguiu....']
 var dialog_index = 0
 var finished = false
 var inventory
+var hotbar
 var quest = false
 
 func _ready():
 	inventory = PlayerInventory.inventory
+	hotbar = PlayerInventory.hotbar
 	for item in inventory:
 		if inventory[item][0] == "Slime Potion" and inventory[item][1] != 0:
 			quest = true
-			print(quest)
+	for item in hotbar:
+		if hotbar[item][0] == "Slime Potion" and hotbar[item][1] != 0:
+			quest = true
 	load_dialog()
 
 func _physics_process(_delta):
